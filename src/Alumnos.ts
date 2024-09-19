@@ -26,8 +26,12 @@ export class Alumnos {
         this.id = id
     }
 
-    public matriz: number[][] | undefined;
+    public matriz: string[][] = [];
 
-    
+    addMateria(materia: Materia, nota: string){
+        //this.matriz.push[materia][nota]
+    }
+
+
     
 }
