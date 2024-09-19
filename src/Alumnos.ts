@@ -1,12 +1,12 @@
 import {Materia} from "./Materia"
 export class Alumnos {
     private name: string
-    private id: number
+    private materias: Materia[]
     
 
-    constructor(name: string, id: number) {
+    constructor(name: string, materias: Materia[] = []) {
         this.name = name;
-        this.id = id;
+        this.materias = materias;
         
     }
 
@@ -14,22 +14,17 @@ export class Alumnos {
         return this.name
     }
     
-    public getid(){
-        return this.id
+    public getmaterias(){
+        return this.materias
     }
     
     public setname(name: string){
        this.name = name
     }
     
-    public setid(id: number){
-        this.id = id
-    }
 
-    public matriz: string[][] = [];
-
-    addMateria(materia: Materia, nota: string){
-        //this.matriz.push[materia][nota]
+    addMateria(materia: Materia){
+        this.materias.push(materia)
     }
 
 

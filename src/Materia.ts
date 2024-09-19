@@ -1,26 +1,26 @@
 export class Materia{
 public name: string
-public id: number
+public nota: number
 
-constructor(name: string, id: number){
+constructor(name: string, nota: number){
    this.name = name
-   this.id = id
+   this.nota = nota
 }
 
 public getname(){
     return this.name
 }
 
-public getid(){
-    return this.id
+public getnota(){
+    return this.nota
 }
 
 public setname(name: string){
    this.name = name
 }
 
-public setid(id: number){
-    this.id = id
+public setnota(nota: number){
+    this.nota = nota
 }
 
 
