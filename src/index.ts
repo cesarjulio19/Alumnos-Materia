@@ -13,6 +13,7 @@ function main(){
 
         //realiza la opccion elegida
        switch(indice){
+        // crea al alumno
         case 0:
           try {
             let nombre: string = readline.question('Introduce el nombre del alumno: ')
@@ -23,10 +24,10 @@ function main(){
             console.log("error al crear el alumno")
           }
           break;
-
+         //añade la materia con su nota al alumno
         case 1:
             try {
-              let nombre: string = readline.question('Introduce el nombre del alumnoa: ')
+              let nombre: string = readline.question('Introduce el nombre del alumno: ')
               for(let alumno of alumnos){
                 if(alumno.getname() == nombre){
                     var nombrem: string = readline.question('Introduce el nombre de la materia: ')
@@ -41,7 +42,7 @@ function main(){
                 console.log("error al insertar la materia al alumno")
             }
             break;
-
+        //muestra las materias con su nota del alumno elegido
         case 2:
             try {
                 var nombre: string = readline.question('Introduce el nombre del alumno: ')
