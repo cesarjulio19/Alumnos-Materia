@@ -1,14 +1,15 @@
 import {Materia} from "./Materia"
 import {Alumnos} from "./Alumnos"
+import {MateriaInterface} from "./MateriaInterface"
 import * as readline from 'readline-sync';
 function main(){
 
     //Muestra las opciones
     const opciones = ['Crear alumno', 'asignar materia a alumno', 'lista de materias del alumno', 'lista de materias creadas',
-      'Añadir o cambiar la nota de la materia de un alumno'
+      'Añadir o cambiar la nota de la materia de un alumno','Lista de alumnos y sus materias'
     ];
     let indice = readline.keyInSelect(opciones, 'Seleccione una operacion: ');
-
+    let materiasC : string[] = [] 
     while(indice !== -1){
 
         //realiza la opccion elegida
@@ -34,10 +35,15 @@ function main(){
                     var nombrem: string = readline.question('Introduce el nombre de la materia: ')
                     var id: number = readline.questionFloat('Introduce el id de la materia: ')
                     var nota: number = readline.questionFloat('Introduce la nota del alumno en la materia: ')
-                    let materia: Materia = new Materia(nombrem, nota, id)
+                    /*let materia: Materia = new Materia(nombrem, nota, id)*/
+                    let materia: MateriaInterface = {name: nombrem, nota: nota, id: id}
+
                     alumno.addMateria(materia)
                     console.log("La materia se ha insertado correctamente")
-                    Materia.insertmateria(materia.getname())
+                    if(!materiasC.includes(materia.name)){
+                       materiasC.push(materia.name)
+                    }
+                    /*Materia.insertmateria(materia.getname())*/
                 }
               }
 
@@ -62,7 +68,7 @@ function main(){
           case 3:
             try {
               console.log("Esta son las materias que se han creado: ")
-              console.log(Materia.getmaterias())
+              console.log(materiasC)
               
             } catch (error) {
               console.log("no se ha podido realizar la operacion correctamente")
@@ -82,6 +88,17 @@ function main(){
               }
             } catch (error) {
               console.log("no se ha podido cambiar o añadir la nota de la materia")
+            }
+          // muestra todos los alumnos y sus materias
+          case 5:
+            try {
+              for(let alumno of Alumnos.getalumnos()){
+                console.log(alumno.getname())
+                console.log(alumno.getmaterias())
+              }
+              
+            } catch (error) {
+              console.log("No se ha podido mostrar correctamente")
             }
        }
 
